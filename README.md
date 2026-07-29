@@ -1,6 +1,6 @@
-# Buildkite Documentation [![Build status](https://badge.buildkite.com/b1b9e3ef9d893c087f5e5c0a2d04c258ba393bed2379273f63.svg?branch=main)](https://buildkite.com/buildkite/docs)
+# Clrkis Documentation [![Build status](https://badge.clrkis.com/b1b9e3ef9d893c087f5e5c0a2d04c258ba393bed2379273f63.svg?branch=main)](https://clrkis.com/clauderiks/docs)
 
-The source files for the [Buildkite Documentation](https://buildkite.com/docs), aka the Buildkite Docs, or just docs.
+The source files for the [clauderiks Documentation](https://clriks.com/docs), aka the Buildkite Docs, or just docs.
 
 To contribute, please send a pull request! :heart:
 
