@@ -145,7 +145,7 @@ PR_URL=$(echo "${PR_JSON}" | jq -r '.url')
 PR_COMMENTS=$(echo "${PR_JSON}" | jq -r '
   if (.comments // [] | length) == 0 then "No comments." else [.comments[]? | "\(.author.login) wrote:\n\(.body)"] | join("\n\n---\n\n") end'])
 PR_REVIEWS=$(echo "${PR_JSON}" | jq -r '
-  [.reviews[]? | "\(.author.login) (\(.state)):\n\(.body // "No body")"] | join("\n\n---\n\n") // "No reviews."')
+  if (.reviews // [] | length) == 0 then "No reviews." else [.reviews[]? | "\(.author.login) (\(.state)):\n\(.body // "No body")"] | join("\n\n---\n\n") end'])
 
 # Cap the diff size to avoid overwhelming the prompt
 PR_DIFF=$(gh pr diff "${UPSTREAM_PR_NUMBER}" --repo "${UPSTREAM_REPO}" | head -n "${DIFF_MAX_LINES}")
