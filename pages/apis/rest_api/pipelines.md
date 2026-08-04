@@ -1367,7 +1367,7 @@ Success response: `204 No Content`
 
 ## Add a webhook
 
-Create an GitHub webhook for an existing pipeline that is configured using our GitHub App. Pushes to the linked GitHub repository will trigger builds.
+Create a GitHub webhook for an existing pipeline that is configured using the Buildkite GitHub App. Pushes to the linked GitHub repository will trigger builds.
 
 ```bash
 curl -H "Authorization: Bearer $TOKEN" \
