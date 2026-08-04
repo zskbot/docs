@@ -143,7 +143,7 @@ PR_TITLE_CLEAN=$(echo "${PR_TITLE}" | sed -E 's/\[?[A-Z]{1,5}-[0-9]+\]?[[:space:
 PR_BODY=$(echo "${PR_JSON}" | jq -r '.body // "No description provided."')
 PR_URL=$(echo "${PR_JSON}" | jq -r '.url')
 PR_COMMENTS=$(echo "${PR_JSON}" | jq -r '
-  [.comments[]? | "\(.author.login) wrote:\n\(.body)"] | join("\n\n---\n\n") // "No comments."')
+  if (.comments // [] | length) == 0 then "No comments." else [.comments[]? | "\(.author.login) wrote:\n\(.body)"] | join("\n\n---\n\n") end'])
 PR_REVIEWS=$(echo "${PR_JSON}" | jq -r '
   [.reviews[]? | "\(.author.login) (\(.state)):\n\(.body // "No body")"] | join("\n\n---\n\n") // "No reviews."')
 
